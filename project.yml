@@ -1,0 +1,43 @@
+# Optional: regenerate the Xcode project with XcodeGen (`brew install xcodegen && xcodegen`).
+# The checked-in Dinar.xcodeproj already works without this.
+name: Dinar
+options:
+  bundleIdPrefix: app.dinar
+  deploymentTarget:
+    iOS: "26.0"
+  developmentLanguage: fa
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+    SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY: YES
+targets:
+  Dinar:
+    type: application
+    platform: iOS
+    sources: [Dinar]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.dinar.ios
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: 1
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: دینار
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.finance
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+        TARGETED_DEVICE_FAMILY: "1,2"
+  DinarTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [DinarTests]
+    dependencies:
+      - target: Dinar
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: app.dinar.ios.tests
